@@ -2,11 +2,17 @@ FROM debian:buster
 
 COPY srcs /root/
 
-RUN	apt-get update && \
-	apt-get upgrade && \
-	apt-get install -y nginx
+## nao trava instalacao
+ARG DEBIAN_FRONTEND=noninteractive
 
-ENTRYPOINT	bash /root/start.sh
+## remove erros
+RUN printf "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
+
+RUN	bash /root/install_server.sh
+
+RUN bash /root/config_server.sh
+
+ENTRYPOINT	bash /root/start_server.sh
 
 CMD bash
 
