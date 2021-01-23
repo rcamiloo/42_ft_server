@@ -6,6 +6,12 @@ cd /root/
 cp -pr ./nginx.conf /etc/nginx/sites-available/default
 cp -pr ./info.php /var/www/localhost/
 
+# cria certificado e chave habilitando conexão na porta 443
+# SSL (cuidar localizacao)
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+	-subj '/C=CA/ST=Quebec/L=Quebec/O=42SP/CN=rcamilo-' 		\
+	-keyout /etc/ssl/certs/localhost.key -out /etc/ssl/certs/localhost.crt
+
 # inicia mysql para que a outras configurações em banco sejam efetuadas
 /etc/init.d/mysql start
 
