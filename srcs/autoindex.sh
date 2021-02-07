@@ -14,6 +14,5 @@ if [ "$RESULT" = "" ]
 		RESULT="OFF"
 fi
 
-echo "Restarting server..."
 /etc/init.d/nginx restart
 echo "Autoindex is now $RESULT"
