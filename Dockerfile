@@ -17,8 +17,6 @@ ENTRYPOINT	bash /root/start_server.sh
 CMD bash
 
 
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
-
 
 
 

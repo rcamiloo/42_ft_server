@@ -1,6 +1,5 @@
 apt-get update
 apt-get upgrade
-apt-get install -y --no-install-recommends apt-utils
 apt-get install -y nginx \
 	wget \
 	mariadb-server \
